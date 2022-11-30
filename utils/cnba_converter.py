@@ -1,14 +1,15 @@
 import json
+import os
 
 
 def converter_CNAB():
 
     with open("files/CNAB.txt", "r") as f:
         f.seek(0)
-        cnba_list = f.readlines()
+        cnab_list = f.readlines()
         json_list = list()
 
-        for item in cnba_list:
+        for item in cnab_list:
             dictionary = {
                 "type": item[0],
                 "date": f"{item[1:5]}-{item[5:7]}-{item[7:9]}",
@@ -19,13 +20,18 @@ def converter_CNAB():
                 "store_own": item[48:62].strip(),
                 "store_name": item[62:81].strip(),
             }
-        json_list.append(dictionary)
+            json_list.append(dictionary)
 
-    with open("files/CNAB.json", "w") as write_file:
+    with open("files/Data.json", "w") as write_file:
         json.dump(json_list, write_file, indent=4, ensure_ascii=False)
 
 
 def read_converted_file():
-    with open("files/CNAB.json", "r", encoding='utf-8') as json_file:
+    with open("files/Data.json", "r", encoding='utf-8') as json_file:
         data = json.load(json_file)
     return data
+
+def remove_files():
+    if os.path.isfile('files/CNAB.txt'):
+        os.remove('files/CNAB.txt')
+        os.remove('files/Data.json')
