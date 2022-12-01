@@ -3,7 +3,6 @@ from .serializers import InterpreterSerializer
 from .models import Interpreter
 from django_filters import rest_framework as filters
 
-
 class InterpreterFilter(filters.FilterSet):
     store_name = filters.CharFilter(
         field_name="store_name", lookup_expr="icontains"

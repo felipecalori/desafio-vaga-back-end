@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from .models import Interpreter
+import decimal
 
 
 class InterpreterSerializer(serializers.ModelSerializer):
