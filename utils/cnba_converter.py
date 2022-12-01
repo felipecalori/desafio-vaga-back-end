@@ -25,7 +25,6 @@ def converter_CNAB():
     with open("files/Data.json", "w") as write_file:
         json.dump(json_list, write_file, indent=4, ensure_ascii=False)
 
-
 def read_converted_file():
     with open("files/Data.json", "r", encoding='utf-8') as json_file:
         data = json.load(json_file)

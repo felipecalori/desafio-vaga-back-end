@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'interpreters',
     'users',
     'transactions',
-    'upload'
+    'upload',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
